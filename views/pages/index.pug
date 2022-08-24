@@ -1,0 +1,14 @@
+html
+	head
+		title Home
+body
+	if loggedin
+		include ../partials/header
+	else
+		include ../partials/headerLoggedOut
+
+	div#main
+		centre
+			h1 Hello User 
+			
+	include ../partials/footer

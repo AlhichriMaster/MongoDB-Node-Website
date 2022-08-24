@@ -1,0 +1,17 @@
+doctype html
+head
+  title Login
+include ../partials/headerLoggedOut
+form#NewRestForm(action = '/login' method = 'POST')
+    h1 Login!
+    .field
+        label(for='username') UserName:
+        input#name(type='text' name='username' placeholder='Enter username')
+        small
+    .field
+        label(for='password') Password:
+        input#delFee(type='password' name='password' placeholder='************')
+        small
+    p #{ErrorMessage}
+    button(type='submit') Login!
+

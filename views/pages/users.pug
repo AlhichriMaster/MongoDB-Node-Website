@@ -1,0 +1,25 @@
+html
+	head
+		title Users
+	if loggedin != null
+		include ../partials/header
+		body 
+			if ErrorMessage == null
+				p All Users:
+				each user in users
+					if !user.privacy
+						a(href="/userid/" + user["_id"])= user.username
+						br
+			else 
+				p #{ErrorMessage};
+	else 
+		include ../partials/headerLoggedOut
+		body
+			if ErrorMessage == null
+				p All Users: 
+				each user in users
+					if !users.privacy
+						a(href="/userid/" + user["_id"])= user.username
+						br
+			else 
+				p #{ErrorMessage};

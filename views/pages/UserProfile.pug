@@ -1,0 +1,34 @@
+doctype html
+head
+  title Profile
+if !loggedin
+  include ../partials/headerLoggedOut
+else 
+  include ../partials/header
+
+p username: #{users.username}
+if users.privacy
+  p(style = {color: "red"}) Private Account: Yes
+else
+  p(style = {color: "green"}) Private Account: No
+
+
+if loggedin
+  form#togglePrivacy(action = "/togglePrivate" method = "POST")
+      input(type='submit' value='Save Changes')
+
+
+p #{ErrorMessage}
+
+p Order History: 
+if orderHistory.length > 0
+  each order in orderHistory
+    a(href="/orders/" + order["_id"])= order["_id"]
+    br
+
+
+
+
+
+
+

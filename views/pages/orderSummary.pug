@@ -1,0 +1,29 @@
+doctype html
+head
+  title Order Summary
+if !loggedin
+  include ../partials/headerLoggedOut
+else 
+  include ../partials/header
+
+//- p #{ErrorMessage}
+
+p Order #{order["_id"]} Summary: 
+
+| Restaurant Name: #{order.restaurantName}
+br
+| User Who Placed The Order: #{order.username}
+br
+//- if order.order.length > 0
+each items in order.order 
+    | #{items.name} x #{items.quantity}
+    br
+br
+| Subtotal: $#{order.subtotal}
+br
+| Tax: $#{order.tax}
+br
+| Delivery Fee: $#{order.name}
+br
+| Total: $#{order.fee}
+br
